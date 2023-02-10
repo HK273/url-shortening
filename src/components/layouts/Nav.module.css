@@ -1,0 +1,82 @@
+/* 
+font-family: 'Open Sans', sans-serif;
+font-family: 'Raleway', sans-serif;
+*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@400;700&display=swap");
+
+/* Custom Properties */
+
+:root {
+  /* Primary */
+  --v-dark-blue: hsl(243, 87%, 12%);
+  --d-blue: hsl(238, 22%, 44%);
+  /* Accent */
+  --bright-blue: hsl(224, 93%, 58%);
+  --mod-cyan: hsl(170, 45%, 43%);
+  /* Neautral */
+  --light-grayish-blue: hsl(240, 75%, 98%);
+  --light-gray: hsl(0, 0%, 75%);
+  /* hover */
+  --hover-blue: #2d3270;
+}
+
+header {
+  background-color: var(--light-gray);
+}
+.logo {
+  cursor: pointer;
+}
+
+.nav_menu {
+  white-space: nowrap;
+  list-style-type: none;
+  /* First three items left of screen */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* t-r-b-l */
+  padding: 3rem 2rem 8rem 2rem;
+}
+
+.item {
+  font-size: 2rem;
+  margin-left: 1.5rem;
+}
+/* Features / Team / Sign in */
+nav li:nth-child(2) {
+  margin-left: auto;
+}
+
+.main_item {
+  font-family: "Raleway", sans-serif;
+  /* font-weight: 500; */
+  text-decoration: none;
+  cursor: pointer;
+  /* Space between links */
+  margin: 0 1rem;
+  color: var(--d-blue);
+  font-size: 1.5rem;
+  transition: all 0.3s ease 0s;
+}
+.main_item:hover {
+  color: var(--light-gray);
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.badge {
+  /* t-r-b-l */
+  padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+  color: white;
+  background-color: var(--mod-cyan);
+}
+
+/* Breakpoints */
+
+/* Nav Header / Top Heading / Footer at smaller breakpoint */
+
+/* Navigation Menu */
