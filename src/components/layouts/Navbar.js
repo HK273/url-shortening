@@ -1,17 +1,38 @@
-import classes from "./Nav.module.css";
+import React, { useState } from "react";
+import "./Navbar.css";
 
-function NavBar() {
+function Navtwo() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Mobile Menu
+  const toggleMobileMenu = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <header>
-      <nav>
-        <ul className={classes.nav_menu}>
-          <img className="logo" alt="logo" />
-          <li className={classes.item}>All Meetups</li>
-          <li className={classes.item}>Add New Meetup</li>
-          <li className={classes.item}>Favourites</li>
+      <nav className="menu navbar">
+        <img className="logo" src="images/logo.svg" alt="logo" />
+        <ul className={`nav-menu ${isOpen ? "active" : ""}`}>
+          <img className="logo" src="images/logo.svg" alt="logo" />
+          <li className="item">About</li>
+          <li className="item">Services</li>
+          <li className="item">Projects</li>
+          <span className="space"></span>
+          <li className="nav-item item">
+            <button className="buttons">CONTACT</button>
+          </li>
         </ul>
+        <div
+          onClick={toggleMobileMenu}
+          className={`hamburger ${isOpen ? "active" : ""}`}
+        >
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </div>
       </nav>
     </header>
   );
 }
-export default NavBar;
+
+export default Navtwo;

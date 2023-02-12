@@ -1,0 +1,128 @@
+/* 
+font-family: 'Open Sans', sans-serif;
+font-family: 'Raleway', sans-serif;
+*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@400;700&display=swap");
+
+/* Custom Properties */
+
+:root {
+  /* Primary */
+  --v-dark-blue: hsl(243, 87%, 12%);
+  --d-blue: hsl(238, 22%, 44%);
+  /* Accent */
+  --bright-blue: hsl(224, 93%, 58%);
+  --mod-cyan: hsl(170, 45%, 43%);
+  /* Neautral */
+  --light-grayish-blue: hsl(240, 75%, 98%);
+  --light-gray: hsl(0, 0%, 75%);
+  /* hover */
+  --hover-blue: #2d3270;
+}
+header {
+  background-color: var(--mod-cyan);
+}
+.logo {
+  cursor: pointer;
+}
+/* Flex nav elements */
+nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 3rem 0 3rem;
+}
+.nav-menu {
+  position: fixed;
+  padding: 4rem 0 2rem 0;
+  right: -100%;
+  flex-direction: column;
+  /* background-color: red; */
+  width: 85%;
+  border-radius: 0.2rem;
+  text-align: center;
+  align-items: center;
+  /* This creates a slide in affect */
+  /* transition: 0.5s; */
+}
+.nav-menu.active {
+  /* Centre collapsable menu */
+  position: absolute;
+  z-index: 1;
+  top: 7rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.active .item {
+  display: block;
+  position: relative;
+}
+/* Reset login nav item positions */
+nav li:nth-child(2) {
+  margin-left: 0;
+}
+.nav-item {
+  text-align: center;
+}
+
+/* space between menu items */
+.item {
+  margin-bottom: 3rem;
+}
+
+.hamburger {
+  position: relative;
+  margin-left: auto;
+  display: block;
+  cursor: pointer;
+  margin-top: 1.5rem;
+}
+.bar {
+  display: block;
+  width: 4rem;
+  height: 0.3rem;
+  margin: 0.6rem auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+}
+/* Hamburger transition */
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(0.9rem) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-0.9rem) rotate(-45deg);
+}
+
+@media only screen and (min-width: 70em) {
+  .nav-menu {
+    position: relative;
+    white-space: nowrap;
+    list-style-type: none;
+    right: auto;
+    /* background-color: none; */
+    /* First three items left of screen */
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    /* t-r-b-l */
+    padding: 3rem 2rem 8rem 2rem;
+  }
+
+  /* Nav item style */
+  .item {
+    font-size: 2rem;
+    margin-left: 1.5rem;
+  }
+  /* shift items right */
+  nav li:nth-child(2) {
+    margin-left: auto;
+  }
+  .hamburger {
+    display: none;
+  }
+}
