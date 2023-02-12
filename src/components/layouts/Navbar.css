@@ -4,23 +4,8 @@ font-family: 'Raleway', sans-serif;
 */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@400;700&display=swap");
 
-/* Custom Properties */
-
-:root {
-  /* Primary */
-  --v-dark-blue: hsl(243, 87%, 12%);
-  --d-blue: hsl(238, 22%, 44%);
-  /* Accent */
-  --bright-blue: hsl(224, 93%, 58%);
-  --mod-cyan: hsl(170, 45%, 43%);
-  /* Neautral */
-  --light-grayish-blue: hsl(240, 75%, 98%);
-  --light-gray: hsl(0, 0%, 75%);
-  /* hover */
-  --hover-blue: #2d3270;
-}
 header {
-  background-color: var(--mod-cyan);
+  background-color: var(--cyan);
 }
 .logo {
   cursor: pointer;
