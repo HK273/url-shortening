@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import Logo from "../images/logo.svg";
 
-function Navtwo() {
+function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   // Mobile Menu
@@ -35,4 +35,4 @@ function Navtwo() {
   );
 }
 
-export default Navtwo;
+export default Navbar;
