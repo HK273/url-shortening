@@ -1,21 +1,23 @@
-.logo {
-  cursor: pointer;
-}
 .item {
   font-size: 1.8rem;
   font-family: "Poppins", sans-serif;
-  color: var(--grayish-violet);
-  margin-left: 3rem;
+  font-weight: 700;
+  color: white;
   display: block;
   cursor: pointer;
   margin-bottom: 3rem;
 }
+
 .item:hover {
-  color: var(--dark-violet);
+  color: var(--cyan);
+}
+.menu {
+  margin: 2rem 0 2rem 0;
 }
 /* Flex nav elements */
 nav {
   display: flex;
+  margin-top: 1rem;
   justify-content: flex-end;
   padding: 0 3rem 0 3rem;
 }
@@ -30,15 +32,15 @@ nav {
   align-items: center;
 }
 .nav-menu.active {
-  /* Centre collapsable menu */
   position: absolute;
   background-color: var(--dark-violet);
+  border-radius: 1rem;
   z-index: 1;
   top: 7rem;
   left: 50%;
   transform: translateX(-50%);
 }
-/* Reset login nav item positions */
+/* Reset nav item positions */
 nav li:nth-child(2) {
   margin-left: 0;
 }
@@ -51,7 +53,6 @@ nav li:nth-child(2) {
   margin-left: auto;
   display: block;
   cursor: pointer;
-  margin-top: 1.5rem;
 }
 .bar {
   display: block;
@@ -72,12 +73,17 @@ nav li:nth-child(2) {
 .hamburger.active .bar:nth-child(3) {
   transform: translateY(-0.9rem) rotate(-45deg);
 }
-
+.logo_one {
+  /* Use align-self to fix flex container stretching img */
+  align-self: start;
+  max-width: 100%;
+  margin-top: 0.4rem;
+}
 /* Button styles */
 
 .btn {
-  width: 10rem;
-  height: 3.8rem;
+  width: 80%;
+  height: 4.5rem;
   background-color: var(--cyan);
   border: none;
   border-radius: 2rem;
@@ -87,37 +93,41 @@ nav li:nth-child(2) {
   font-size: 2rem;
   align-items: center;
 }
-
-/* on hover over button zoom */
-
 .btn:hover {
   background-color: var(--light-cyan);
 }
 
-@media only screen and (min-width: 70em) {
+@media only screen and (min-width: 60em) {
   .nav-menu,
   .nav-menu.active {
     position: relative;
     background-color: white;
-    top: auto;
+    top: 0;
     white-space: nowrap;
     list-style-type: none;
     right: auto;
-    /* First three items left of screen */
     display: flex;
     flex-direction: row;
     width: 100%;
-    /* t-r-b-l */
-    padding: 3rem 2rem 8rem 2rem;
+    padding: 0 2rem 8rem 2rem;
   }
   /* shift items right */
-  nav li:nth-child(5) {
+  nav li:nth-child(4) {
     margin-left: auto;
   }
   .hamburger {
     display: none;
   }
-  .logo {
-    display: none;
+  .item {
+    color: var(--grayish-violet);
+    font-weight: 500;
+    margin-right: 3rem;
+  }
+  .item:hover {
+    color: var(--dark-violet);
+  }
+  .btn {
+    width: 10rem;
+    height: 3.8rem;
   }
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
+import Logo from "../images/logo.svg";
 
 function Navtwo() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,9 +12,8 @@ function Navtwo() {
   return (
     <header>
       <nav className="menu navbar">
-        <img className="logo_one" src="images/logo.svg" alt="logo" />
+        <img className="logo_one" src={Logo} alt="logo" />
         <ul className={`nav-menu ${isOpen ? "active" : ""}`}>
-          <img className="logo" src="images/logo.svg" alt="logo" />
           <li className="item">Features</li>
           <li className="item">Pricing</li>
           <li className="item">Resources</li>
