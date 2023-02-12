@@ -1,14 +1,17 @@
-/* 
-font-family: 'Open Sans', sans-serif;
-font-family: 'Raleway', sans-serif;
-*/
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@400;700&display=swap");
-
-header {
-  background-color: var(--cyan);
-}
 .logo {
   cursor: pointer;
+}
+.item {
+  font-size: 1.8rem;
+  font-family: "Poppins", sans-serif;
+  color: var(--grayish-violet);
+  margin-left: 3rem;
+  display: block;
+  cursor: pointer;
+  margin-bottom: 3rem;
+}
+.item:hover {
+  color: var(--dark-violet);
 }
 /* Flex nav elements */
 nav {
@@ -21,25 +24,19 @@ nav {
   padding: 4rem 0 2rem 0;
   right: -100%;
   flex-direction: column;
-  /* background-color: red; */
   width: 85%;
   border-radius: 0.2rem;
   text-align: center;
   align-items: center;
-  /* This creates a slide in affect */
-  /* transition: 0.5s; */
 }
 .nav-menu.active {
   /* Centre collapsable menu */
   position: absolute;
+  background-color: var(--dark-violet);
   z-index: 1;
   top: 7rem;
   left: 50%;
   transform: translateX(-50%);
-}
-.active .item {
-  display: block;
-  position: relative;
 }
 /* Reset login nav item positions */
 nav li:nth-child(2) {
@@ -47,11 +44,6 @@ nav li:nth-child(2) {
 }
 .nav-item {
   text-align: center;
-}
-
-/* space between menu items */
-.item {
-  margin-bottom: 3rem;
 }
 
 .hamburger {
@@ -68,7 +60,7 @@ nav li:nth-child(2) {
   margin: 0.6rem auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background-color: white;
+  background-color: black;
 }
 /* Hamburger transition */
 .hamburger.active .bar:nth-child(2) {
@@ -81,33 +73,51 @@ nav li:nth-child(2) {
   transform: translateY(-0.9rem) rotate(-45deg);
 }
 
+/* Button styles */
+
+.btn {
+  width: 10rem;
+  height: 3.8rem;
+  background-color: var(--cyan);
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  color: white;
+  font-size: 2rem;
+  align-items: center;
+}
+
+/* on hover over button zoom */
+
+.btn:hover {
+  background-color: var(--light-cyan);
+}
+
 @media only screen and (min-width: 70em) {
-  .nav-menu {
+  .nav-menu,
+  .nav-menu.active {
     position: relative;
+    background-color: white;
+    top: auto;
     white-space: nowrap;
     list-style-type: none;
     right: auto;
-    /* background-color: none; */
     /* First three items left of screen */
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: flex-start;
-    align-items: center;
     /* t-r-b-l */
     padding: 3rem 2rem 8rem 2rem;
   }
-
-  /* Nav item style */
-  .item {
-    font-size: 2rem;
-    margin-left: 1.5rem;
-  }
   /* shift items right */
-  nav li:nth-child(2) {
+  nav li:nth-child(5) {
     margin-left: auto;
   }
   .hamburger {
+    display: none;
+  }
+  .logo {
     display: none;
   }
 }
