@@ -4,7 +4,7 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
-  margin: 0;
+  margin: 0 1rem 0 1rem;
   padding: 0;
 }
 
@@ -28,4 +28,36 @@ html {
   --grayish-violet: hsl(257, 7%, 63%);
   --very-dark-blue: hsl(255, 11%, 22%);
   --very-dark-violet: hsl(260, 8%, 14%);
+}
+
+/* General Styles */
+img {
+  max-width: 100%;
+}
+
+h1 {
+  font-size: 5rem;
+  font-family: "Poppins", sans-serif;
+  color: var(--dark-violet);
+  line-height: 1.3;
+}
+p {
+  font-size: 1.8rem;
+  font-family: "Poppins", sans-serif;
+  /* color: var(--grayish-violet); */
+}
+
+/* Button styles */
+button {
+  height: 4.5rem;
+  background-color: var(--cyan);
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  color: white;
+  font-size: 2rem;
+}
+button:hover {
+  background-color: var(--light-cyan);
 }

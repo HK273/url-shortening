@@ -19,7 +19,7 @@ function Navbar() {
           <li className="item">Resources</li>
           <li className="item">Login</li>
           <li className="nav-item item">
-            <button className="btn">Sign Up</button>
+            <button className="nav-btn">Sign Up</button>
           </li>
         </ul>
         <div
