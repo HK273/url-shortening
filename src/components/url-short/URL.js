@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 
-const api_url = "https://api.shrtco.de/v2/shorten?";
-
-const URL = () => {
+function URL() {
+  const api_url = "https://api.shrtco.de/v2/shorten?";
   const [search_url, setSearchUrl] = useState("");
   const [shortenLinks, setShortenLinks] = useState([]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  function handleSearchUrlChange(event) {
+    setSearchUrl(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
     fetch(api_url + "url=" + search_url)
       .then((response) => {
         if (!response.ok) {
@@ -17,9 +20,18 @@ const URL = () => {
       })
       .then((data) => {
         setShortenLinks([...shortenLinks, data.result.short_link]);
-        console.log(shortenLinks);
       });
-  };
+  }
+
+  function copyToClipboard(link) {
+    navigator.clipboard.writeText(link);
+  }
+
+  function handleRemoveLink(index) {
+    const newShortenLinks = [...shortenLinks];
+    newShortenLinks.splice(index, 1);
+    setShortenLinks(newShortenLinks);
+  }
 
   return (
     <div>
@@ -27,17 +39,19 @@ const URL = () => {
         <input
           type="text"
           value={search_url}
-          onChange={(e) => setSearchUrl(e.target.value)}
+          onChange={handleSearchUrlChange}
         />
         <button type="submit">Shorten</button>
       </form>
       {shortenLinks.map((shortenLink, index) => (
         <p key={index}>
           Shortened link {index + 1}: {shortenLink}
+          <button onClick={copyToClipboard(shortenLink)}>Copy</button>
+          <button onClick={handleRemoveLink(index)}>X</button>
         </p>
       ))}
     </div>
   );
-};
+}
 
 export default URL;
