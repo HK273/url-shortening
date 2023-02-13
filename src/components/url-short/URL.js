@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import "../url-short/URL.css";
+import { IoCloseSharp } from "react-icons/io5";
+import { AiOutlineCopy } from "react-icons/ai";
 
 function URL() {
   const api_url = "https://api.shrtco.de/v2/shorten?";
@@ -35,21 +38,25 @@ function URL() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={search_url}
-          onChange={handleSearchUrlChange}
-        />
-        <button type="submit">Shorten</button>
-      </form>
-      {shortenLinks.map((shortenLink, index) => (
-        <p key={index}>
-          Shortened link {index + 1}: {shortenLink}
-          <button onClick={copyToClipboard(shortenLink)}>Copy</button>
-          <button onClick={handleRemoveLink(index)}>X</button>
-        </p>
-      ))}
+      <div className="url-shortner">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={search_url}
+            onChange={handleSearchUrlChange}
+          />
+          <button type="submit">Shorten</button>
+        </form>
+      </div>
+      <div>
+        {shortenLinks.map((shortenLink, index) => (
+          <p key={index} className="copy-icon">
+            Shortened link {index + 1}: {shortenLink}
+            <AiOutlineCopy onClick={() => copyToClipboard(shortenLink)} />
+            <IoCloseSharp onClick={() => handleRemoveLink(index)} />
+          </p>
+        ))}
+      </div>
     </div>
   );
 }
