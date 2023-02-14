@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "../url-short/URL.css";
+import "../url-short/URLShort.css";
 import { IoCloseSharp } from "react-icons/io5";
-import { AiOutlineCopy } from "react-icons/ai";
 
 function URL() {
   const api_url = "https://api.shrtco.de/v2/shorten?";
   const [search_url, setSearchUrl] = useState("");
   const [shortenLinks, setShortenLinks] = useState([]);
+  const [buttonText, setButtonText] = useState("Copy");
 
   function handleSearchUrlChange(event) {
     setSearchUrl(event.target.value);
@@ -14,6 +14,12 @@ function URL() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    // Check if search_url is a valid URL
+    const urlRegex = /^(http(s)?:\/\/)([\w-]+\.)+[\w-]+(\/[\w- ;,./?%&=]*)?$/;
+    if (!search_url || !urlRegex.test(search_url)) {
+      alert("Please enter a valid URL");
+      return;
+    }
     fetch(api_url + "url=" + search_url)
       .then((response) => {
         if (!response.ok) {
@@ -27,12 +33,15 @@ function URL() {
   }
 
   function copyToClipboard(link) {
+    // setButtonText("Copied");
+    setButtonText(buttonText === "Copy" ? "Copied" : "Copy");
     navigator.clipboard.writeText(link);
   }
 
   function handleRemoveLink(index) {
     const newShortenLinks = [...shortenLinks];
     newShortenLinks.splice(index, 1);
+    setButtonText(buttonText === "Copy" ? "Copied" : "Copy");
     setShortenLinks(newShortenLinks);
   }
 
@@ -44,19 +53,34 @@ function URL() {
             type="text"
             value={search_url}
             onChange={handleSearchUrlChange}
+            placeholder="Shorten a link here..."
           />
-          <button type="submit">Shorten</button>
+          <button className="url-btn" type="submit">
+            Shorten it!
+          </button>
         </form>
       </div>
-      <div>
-        {shortenLinks.map((shortenLink, index) => (
-          <p key={index} className="copy-icon">
-            Shortened link {index + 1}: {shortenLink}
-            <AiOutlineCopy onClick={() => copyToClipboard(shortenLink)} />
+      {shortenLinks.map((shortenLink, index) => (
+        <div className="short-link" key={index}>
+          <div>
+            <p>{search_url}</p>
+          </div>
+          <div>
+            <p>{shortenLink}</p>
+          </div>
+          <div>
+            <button
+              className={buttonText}
+              onClick={() => copyToClipboard(shortenLink)}
+            >
+              {buttonText}
+            </button>
+          </div>
+          <div className="close">
             <IoCloseSharp onClick={() => handleRemoveLink(index)} />
-          </p>
-        ))}
-      </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
