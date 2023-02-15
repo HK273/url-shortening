@@ -87,10 +87,10 @@ function URLShort() {
       {shortenLinks.map((shortenLink, index) => (
         <div className="short-link" key={index}>
           <div>
-            <p>{shortenLink.originalLink}</p>
+            <p className="p-link">{shortenLink.originalLink}</p>
           </div>
           <div>
-            <p>{shortenLink.shortLink}</p>
+            <p className="p-link">{shortenLink.shortLink}</p>
           </div>
           <div>
             <button
