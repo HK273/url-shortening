@@ -2,22 +2,29 @@ import React, { useState } from "react";
 import "../url-short/URLShort.css";
 import { IoCloseSharp } from "react-icons/io5";
 
-function URL() {
+// https://www.bbc.co.uk
+function URLShort() {
   const api_url = "https://api.shrtco.de/v2/shorten?";
   const [search_url, setSearchUrl] = useState("");
   const [shortenLinks, setShortenLinks] = useState([]);
-  const [buttonText, setButtonText] = useState("Copy");
+  const [inputStyle, setInputStyle] = useState("valid");
+  const [additionalHtml, setAdditionalHtml] = useState(null);
 
   function handleSearchUrlChange(event) {
-    setSearchUrl(event.target.value);
+    const input = event.target.value;
+    setInputStyle("valid");
+    setAdditionalHtml(null);
+    setSearchUrl(input);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    // Check if search_url is a valid URL
     const urlRegex = /^(http(s)?:\/\/)([\w-]+\.)+[\w-]+(\/[\w- ;,./?%&=]*)?$/;
     if (!search_url || !urlRegex.test(search_url)) {
-      alert("Please enter a valid URL");
+      setInputStyle("invalid");
+      setAdditionalHtml(
+        <p className="placeholder-validate">please add a valid URL</p>
+      );
       return;
     }
     fetch(api_url + "url=" + search_url)
@@ -28,21 +35,36 @@ function URL() {
         return response.json();
       })
       .then((data) => {
-        setShortenLinks([...shortenLinks, data.result.short_link]);
+        setShortenLinks((prevShortenLinks) => [
+          ...prevShortenLinks,
+          {
+            originalLink: search_url,
+            shortLink: data.result.short_link,
+            isCopied: false, // add isCopied state
+          },
+        ]);
+        console.log(shortenLinks);
+        setSearchUrl(""); // clear input
+        // reset placeholder and HTML
+        setInputStyle("valid");
+        setAdditionalHtml(null);
       });
   }
 
-  function copyToClipboard(link) {
-    // setButtonText("Copied");
-    setButtonText(buttonText === "Copy" ? "Copied" : "Copy");
-    navigator.clipboard.writeText(link);
+  function handleCopy(index) {
+    setShortenLinks((prevShortenLinks) => {
+      const newShortenLinks = [...prevShortenLinks];
+      newShortenLinks[index].isCopied = true; // set current link as copied
+      return newShortenLinks;
+    });
   }
 
   function handleRemoveLink(index) {
-    const newShortenLinks = [...shortenLinks];
-    newShortenLinks.splice(index, 1);
-    setButtonText(buttonText === "Copy" ? "Copied" : "Copy");
-    setShortenLinks(newShortenLinks);
+    setShortenLinks((prevShortenLinks) => {
+      const newShortenLinks = [...prevShortenLinks];
+      newShortenLinks.splice(index, 1);
+      return newShortenLinks;
+    });
   }
 
   return (
@@ -50,6 +72,7 @@ function URL() {
       <div className="url-shortner">
         <form onSubmit={handleSubmit}>
           <input
+            className={inputStyle} // set input style based on state
             type="text"
             value={search_url}
             onChange={handleSearchUrlChange}
@@ -58,22 +81,23 @@ function URL() {
           <button className="url-btn" type="submit">
             Shorten it!
           </button>
+          {additionalHtml}
         </form>
       </div>
       {shortenLinks.map((shortenLink, index) => (
         <div className="short-link" key={index}>
           <div>
-            <p>{search_url}</p>
+            <p>{shortenLink.originalLink}</p>
           </div>
           <div>
-            <p>{shortenLink}</p>
+            <p>{shortenLink.shortLink}</p>
           </div>
           <div>
             <button
-              className={buttonText}
-              onClick={() => copyToClipboard(shortenLink)}
+              className={shortenLink.isCopied ? "copied-btn" : "copy-btn"} // toggle button state based on isCopied state
+              onClick={() => handleCopy(index)}
             >
-              {buttonText}
+              {shortenLink.isCopied ? "Copied" : "Copy"}
             </button>
           </div>
           <div className="close">
@@ -85,4 +109,4 @@ function URL() {
   );
 }
 
-export default URL;
+export default URLShort;
