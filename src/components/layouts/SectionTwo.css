@@ -1,0 +1,6 @@
+.section-two {
+  position: relative;
+  padding-block: 10rem;
+  background-color: var(--gray);
+  z-index: -1;
+}
