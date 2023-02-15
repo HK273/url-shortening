@@ -11,7 +11,7 @@ root.render(
   <React.StrictMode>
     <Navbar />
     <Hero />
-    <URLShort />
     <SectionTwo />
+    <URLShort />
   </React.StrictMode>
 );

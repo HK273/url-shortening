@@ -68,7 +68,7 @@ function URLShort() {
   }
 
   return (
-    <div className="url-wrapper">
+    <div className="url-wrap">
       <div className="url-shortner">
         <form onSubmit={handleSubmit}>
           <input
