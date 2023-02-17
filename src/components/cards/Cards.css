@@ -20,3 +20,14 @@
   transform: translateX(-50%);
   z-index: 1;
 }
+@media only screen and (min-width: 70em) {
+  .card-one {
+    margin-top: 0;
+  }
+  .card-two {
+    margin-top: 5rem;
+  }
+  .card-three {
+    margin-top: 10rem;
+  }
+}
