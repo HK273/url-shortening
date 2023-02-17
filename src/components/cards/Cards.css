@@ -21,6 +21,7 @@
 
 .card {
   margin: auto;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   position: relative;
   padding: 8rem 3rem 5rem 3rem;
   background-color: white;

@@ -37,11 +37,13 @@ input {
   padding: 3rem 3rem 3rem 3rem;
   border-radius: 1rem;
   width: 80%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: var(--dark-violet);
 }
 
 .short-link {
   margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
