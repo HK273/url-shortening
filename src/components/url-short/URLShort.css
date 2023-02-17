@@ -25,9 +25,13 @@ input {
   height: 4rem;
   border-radius: 0.5rem;
 }
-
+.url-wrap {
+  /* set background half gray */
+  background: linear-gradient(#fff 50%, var(--gray) 50%);
+}
 .url-shortner {
   background: url(../images/bg-shorten-desktop.svg);
+
   margin: auto;
   max-width: 1440px;
   margin-top: 5rem;

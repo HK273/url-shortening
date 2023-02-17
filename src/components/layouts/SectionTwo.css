@@ -1,12 +1,26 @@
 .section-two {
-  padding-block: 10rem;
-  position: relative;
-  z-index: -1;
-  margin-bottom: -30rem;
-  margin-top: 10rem;
+  padding: 5rem 2rem 5rem 2rem;
   background-color: var(--gray);
 }
+.section-two-width {
+  max-width: 1440px;
+  margin: auto;
+}
 
-.Test {
+.section-two-header {
   text-align: center;
+}
+.section-two-p {
+  color: var(--grayish-violet);
+  margin: 2rem 0 10rem 0;
+}
+
+.card-container {
+  display: grid;
+  gap: 8rem;
+}
+@media only screen and (min-width: 70em) {
+  .card-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

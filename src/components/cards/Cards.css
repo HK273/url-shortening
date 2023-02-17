@@ -1,0 +1,23 @@
+.card {
+  margin: auto;
+  position: relative;
+  padding: 8rem 4rem 4rem 4rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  text-align: center;
+  /* margin-bottom: 10rem; */
+}
+.card-p {
+  color: var(--grayish-violet);
+  margin-top: 1.5rem;
+}
+.card-img {
+  position: absolute;
+  padding: 3rem 3rem 3rem 3rem;
+  background-color: var(--dark-violet);
+  border-radius: 50%;
+  top: -5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
