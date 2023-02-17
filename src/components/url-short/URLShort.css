@@ -31,7 +31,6 @@ input {
 }
 .url-shortner {
   background: url(../images/bg-shorten-desktop.svg);
-
   margin: auto;
   max-width: 1440px;
   margin-top: 5rem;
