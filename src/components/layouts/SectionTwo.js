@@ -25,6 +25,8 @@ function SectionTwo() {
           />
           <Card
             class="card card-two"
+            left="left-line"
+            right="right-line"
             img={DetsImg}
             h3="Detailed Recordsn"
             p=" Gain insights into who is clicking your links. Knowing when and where 

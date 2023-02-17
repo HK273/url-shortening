@@ -3,7 +3,7 @@
   display: grid;
   justify-content: center;
   background-color: var(--very-dark-blue);
-  padding: 10rem;
+  padding: 10rem 20rem 10rem 20rem;
   gap: 3rem;
 }
 .footer-links {
