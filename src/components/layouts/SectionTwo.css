@@ -25,3 +25,9 @@
     gap: 5rem;
   }
 }
+@media only screen and (min-width: 55em) {
+  .section-two-header {
+    margin: auto;
+    max-width: 40%;
+  }
+}
