@@ -17,7 +17,7 @@
 
 .card-container {
   display: grid;
-  gap: 8rem;
+  gap: 10rem;
 }
 @media only screen and (min-width: 70em) {
   .card-container {
