@@ -1,0 +1,54 @@
+/* Footer */
+.footer {
+  display: grid;
+  justify-content: center;
+  background-color: var(--very-dark-blue);
+  padding: 10rem;
+  gap: 3rem;
+}
+.footer-links {
+  text-align: center;
+}
+.footer-links > .header-li {
+  color: white;
+}
+.footer-links > li {
+  display: grid;
+  list-style: none;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  padding-bottom: 1rem;
+  font-size: 2rem;
+  color: var(--grayish-violet);
+}
+
+.footer-links > li:hover {
+  color: var(--cyan);
+  cursor: pointer;
+}
+/* Scoail icons */
+.flex-soc {
+  display: flex;
+  align-items: start;
+  gap: 3rem;
+}
+/* Link */
+.flex {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 2rem 0 2rem 0;
+}
+
+@media only screen and (min-width: 70em) {
+  .footer {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0;
+  }
+  .footer-links > li {
+    text-align: start;
+  }
+  .footer-links {
+    text-align: start;
+  }
+}
