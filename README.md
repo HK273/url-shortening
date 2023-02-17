@@ -4,4 +4,4 @@ This is a solution to the [Shortly URL shortening API Challenge challenge on Fro
 
 ## Links
 
-https://css-tricks.com/different-ways-to-write-css-in-react/
+[CSS in React](https://css-tricks.com/different-ways-to-write-css-in-react/)
