@@ -10,4 +10,4 @@ This is a solution to the [Shortly URL shortening API Challenge challenge on Fro
 ## Solution Links
 
 [Site](https://hk273.github.io/url-shortening/)
-[Solution]()
+[Solution](https://www.frontendmentor.io/solutions/url-shortening-page-mIQye7DfFn)
