@@ -6,3 +6,8 @@ This is a solution to the [Shortly URL shortening API Challenge challenge on Fro
 
 [CSS in React](https://css-tricks.com/different-ways-to-write-css-in-react/)
 [React App -> GitHub Pages](https://github.com/gitname/react-gh-pages)
+
+## Solution Links
+
+[Site](https://hk273.github.io/url-shortening/)
+[Solution]()
