@@ -35,14 +35,19 @@ function URLShort() {
         return response.json();
       })
       .then((data) => {
-        setShortenLinks((prevShortenLinks) => [
-          ...prevShortenLinks,
-          {
-            originalLink: search_url,
-            shortLink: data.result.short_link,
-            isCopied: false, // add isCopied state
-          },
-        ]);
+        setShortenLinks((prevShortenLinks) => {
+          console.log("prevShortenLinks below..");
+          console.log(prevShortenLinks); // log prevShortenLinks array
+          return [
+            ...prevShortenLinks,
+            {
+              originalLink: search_url,
+              shortLink: data.result.short_link,
+              isCopied: false,
+            },
+          ];
+        });
+        console.log("ShortenLinks below..");
         console.log(shortenLinks);
         setSearchUrl(""); // clear input
         // reset placeholder and HTML
@@ -54,6 +59,9 @@ function URLShort() {
   function handleCopy(index) {
     setShortenLinks((prevShortenLinks) => {
       const newShortenLinks = [...prevShortenLinks];
+      console.log("index: " + index);
+      console.log("newShortenLinks handleCopy...");
+      console.log(newShortenLinks);
       newShortenLinks[index].isCopied = true; // set current link as copied
       return newShortenLinks;
     });
@@ -62,6 +70,8 @@ function URLShort() {
   function handleRemoveLink(index) {
     setShortenLinks((prevShortenLinks) => {
       const newShortenLinks = [...prevShortenLinks];
+      console.log("index: " + index);
+      console.log("newShortenLinks handleRemoveLink...");
       newShortenLinks.splice(index, 1);
       return newShortenLinks;
     });
