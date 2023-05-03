@@ -56,12 +56,11 @@ function URLShort() {
       });
   }
 
-  function handleCopy(index) {
+  async function handleCopy(index) {
+    const shortLink = shortenLinks[index].shortLink;
+    await navigator.clipboard.writeText(shortLink);
     setShortenLinks((prevShortenLinks) => {
       const newShortenLinks = [...prevShortenLinks];
-      console.log("index: " + index);
-      console.log("newShortenLinks handleCopy...");
-      console.log(newShortenLinks);
       newShortenLinks[index].isCopied = true; // set current link as copied
       return newShortenLinks;
     });
